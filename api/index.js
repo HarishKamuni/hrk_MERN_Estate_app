@@ -1,9 +1,12 @@
 import express from 'express';
 import ConnectDB from './db/ConnectDB.js';
 import dotenv from 'dotenv';
+import userRoute from './routes/user.route.js';
 
 const app = express();
 dotenv.config();
+
+app.use('/api/user', userRoute);
 
 const start = async () => {
   try {
