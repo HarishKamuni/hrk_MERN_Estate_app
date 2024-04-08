@@ -2,11 +2,14 @@ import express from 'express';
 import ConnectDB from './db/ConnectDB.js';
 import dotenv from 'dotenv';
 import userRoute from './routes/user.route.js';
+import authRoute from './routes/auth.route.js';
 
 const app = express();
 dotenv.config();
+app.use(express.json());
 
 app.use('/api/user', userRoute);
+app.use('/api/auth', authRoute);
 
 const start = async () => {
   try {
