@@ -11,6 +11,17 @@ app.use(express.json());
 app.use('/api/user', userRoute);
 app.use('/api/auth', authRoute);
 
+//middleware
+app.use((err, req, res, next) => {
+  const statuscode = err.statuscode || 500;
+  const message = err.message || 'Internal error!!';
+  return res.status(statuscode).json({
+    success: false,
+    statuscode,
+    message,
+  });
+});
+
 const start = async () => {
   try {
     await ConnectDB(process.env.MONGO);
