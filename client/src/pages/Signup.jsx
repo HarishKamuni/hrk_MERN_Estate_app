@@ -51,6 +51,7 @@ const Signup = () => {
           name="username"
           value={formData.username}
           onChange={handleChange}
+          required
         />
         <input
           type="email"
@@ -59,6 +60,7 @@ const Signup = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          required
         />
         <input
           type="password"
@@ -67,6 +69,7 @@ const Signup = () => {
           name="password"
           value={formData.password}
           onChange={handleChange}
+          required
         />
         <button
           type="submit"
