@@ -3,10 +3,12 @@ import ConnectDB from './db/ConnectDB.js';
 import dotenv from 'dotenv';
 import userRoute from './routes/user.route.js';
 import authRoute from './routes/auth.route.js';
+import cors from 'cors';
 
 const app = express();
 dotenv.config();
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/user', userRoute);
 app.use('/api/auth', authRoute);
